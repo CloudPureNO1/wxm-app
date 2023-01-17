@@ -1,0 +1,251 @@
+.wxm-goods-info {
+ 
+
+    .wxm-indicator {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        padding: 2px 5px;
+        font-size: 1rem;
+        background: #ebedf0;
+        border-radius: 30%;
+    }
+    .goods-info-swipe {
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+    .goods-detail {
+        width: 96vw;
+        margin: auto;
+        > div {
+            margin: 1rem 0 0 0;
+        }
+
+        .sail-info {
+            .price {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0;
+
+                .left {
+                    color: #f70606;
+                    .present-price {
+                        padding: 5px 0 0 0;
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                    }
+
+                    .original-price {
+                        font-size: 0.75rem;
+                        text-decoration: line-through;
+                    }
+                }
+                .right {
+                    color: #f70606;
+                    .title {
+                        font-weight: 700;
+                        > :nth-child(2) {
+                            font-size: 0.8rem;
+                            padding: 0 0 0 0.5rem;
+                        }
+                    }
+                    .content {
+                        .colon {
+                            display: inline-block;
+                            margin: 0 4px;
+                            color: #1989fa;
+                            font-weight: 700;
+                        }
+                        .block {
+                            display: inline-block;
+                            width: 1rem;
+                            color: #fff;
+                            font-size: 12px;
+
+                            text-align: center;
+                            background-color: #1989fa;
+                        }
+                    }
+                }
+            }
+            .goods-brief {
+                padding: 0 0 1rem 0;
+                font-weight: 700;
+            }
+        }
+        .discounts-box {
+            > div {
+                padding: 1rem 1rem;
+            }
+            .title {
+                font-weight: 700;
+                margin: 0 1.25rem 0 0;
+            }
+            .left {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .right {
+                padding: 0 .25rem 0 0;
+            }
+
+            .promotion {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                font-size: 12px;
+            }
+            .present {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                font-size: 12px;
+            }
+            .discount__content {
+                color: #f70606;
+                border: 0.1px solid #f70606;
+                // border-radius: 3px;
+                padding: 0 2px 0 0px;
+                margin: 0 0.25rem 0 0;
+            }
+            .discount__content2 {
+                color: #f70606;
+                border: 0.1px solid #f70606;
+                // border-radius: 3px;
+                padding: 0 2px 0 0px;
+                margin: 0 0.25rem;
+            }
+
+            .vouchers {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                font-size: 12px;
+
+                .vouchers-title {
+                    background: #f70606;
+                    color: #fff;
+                    padding: 0 2px 0 2px;
+                }
+
+                .vouchers-content {
+                    padding: 0 0 0 5px;
+                }
+            }
+            .delivery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                font-size: 12px;
+            }
+        }
+        .specification {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            > div {
+                padding: 0.5rem 1rem;
+            }
+            .title {
+                font-weight: 600;
+                font-size: 0.9rem;
+                margin: 0 0 0.5rem 0;
+            }
+            .content {
+                font-size: 0.75rem;
+                color: #969799;
+            }
+            .dividing-line {
+                margin: 0;
+                padding: 0.5rem 0;
+                border-right: 1px solid #ede3e3;
+            }
+        }
+    }
+    .space{
+        margin:1rem;
+    }
+    .evaluation{
+        width: 96vw;
+        margin: auto;
+        .title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 0.8rem;
+            padding:1rem;
+            .left{
+                font-weight: 700;
+                
+            }
+            .right{
+                >span{
+                    padding:0 0 0 0.5rem;
+                }
+                >:nth-child(2){
+                    color:#f70606;
+                }
+            }
+        }
+        .content{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            color:#564b4b;
+            font-size: 0.75rem;
+            >div{
+                margin:.35rem .5rem;
+                padding:.2rem .5rem;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+}
+            .praise-tag{
+                background-color: #e6efe9;
+            }
+            .bad-tag{
+                background-color: #cfbfbf;
+            }
+        }
+    }
+
+    .graphic-details{
+        
+        margin:1rem 0 0 0;
+
+        .title{
+            font-size: 1.25rem;
+            text-align: center;
+        }
+    }
+    .notice{
+        >div{
+            margin:0.5rem;
+        }
+        padding:1rem;
+        .title{
+            font-weight: 700;
+        }
+        .content{
+            font-size: 0.5rem;
+            color: #62696c;
+            >:first-child{
+                color:#302d2d;
+                font-weight: 900;
+            }
+        }
+ 
+    }
+
+}

@@ -1,0 +1,81 @@
+$padding: 1rem;
+@mixin active-font {
+    color: #f70606;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+@mixin base-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin base-flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.wxm-cart {
+    .header {
+        background: var(--van-tabbar-background);
+        .bar {
+            padding: $padding;
+            @include base-flex-between();
+
+            .label__active {
+                @include active-font;
+            }
+            .label__selected {
+                &:active {
+                    @include active-font;
+                }
+                &:hover {
+                    @include active-font;
+                }
+            }
+
+            .left {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .cart-btn {
+                    @extend .label__selected;
+                }
+                .frequently-bought {
+                    margin: 0 1rem;
+                    @extend .label__selected;
+                }
+            }
+            .right {
+                span {
+                    font-weight: 700;
+                }
+                @extend .label__selected;
+            }
+        }
+
+        .body {
+            padding: 0 $padding $padding $padding;
+            @include base-flex-start;
+            .address {
+                font-size: 0.75rem;
+                line-height: 1;
+            }
+        }
+        .search {
+            .search-goods-list {
+                color: red;
+            }
+        }
+    }
+
+    .cart-goods-list {
+        .list-box {
+            border-bottom: 1px dotted #a2c2db;
+            color: #0484e9;
+            width: 100%;
+            height: 3rem;
+            line-height: 3rem;
+        }
+    }
+}

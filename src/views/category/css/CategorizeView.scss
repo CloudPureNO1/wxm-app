@@ -1,0 +1,80 @@
+.wxm-categorize {
+    .body {
+        font-size: 0.75rem;
+        display: flex;
+        .left {
+            width: auto;
+           // height: 100vh;
+
+           .ht{
+             height: 100%;
+           }
+           .o-y-flow{
+            overflow-y: auto;
+           }
+        }
+        .right {
+            flex: 1;
+            .title{
+                padding:1rem;
+            }
+            .content {
+                .card{
+                    line-height: 1;
+                }
+                .price-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .present-price {
+                        color: #f70606;
+                        padding: 5px 0 0 0;
+                        font-weight: 700;
+                    }
+
+ 
+                }
+            }
+
+            .discounts-box {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 10px;
+                .discounts {
+                    margin-top: 2px;
+
+                    .font {
+                        color: #f70606;
+                        border: 0.1px solid #f70606;
+                        border-radius: 3px;
+                        margin: 5px 5px 0 0;
+                        padding: 0 2px 0 0px;
+                    }
+
+                    .vouchers {
+                        display: flex;
+
+                        .vouchers-title {
+                            background: #f70606;
+                            color: #fff;
+                            padding: 0 2px 0 2px;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .vouchers-content {
+                            padding: 0 0 0 5px;
+                        }
+                    }
+                }
+            }
+ 
+        }
+    }
+}
+
+
+ 

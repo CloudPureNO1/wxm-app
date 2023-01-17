@@ -1,0 +1,48 @@
+.wxm-welcome {
+    background-color: var(--van-background);
+    .wxm-swipe {
+        text-align: center;
+    }
+
+    .header {
+        //position: fixed;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // height: auto;
+        // margin: 0;
+        padding: 5px;
+        // box-sizing: content-box;
+        // z-index: var(--van-tabbar-z-index);
+        background: var(--van-tabbar-background);
+    
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
+            width: 96%;
+    
+            .left {
+                display: flex;
+                justify-content: flex-start;
+                align-content: center;
+                align-items: center;
+                .msg {
+                    padding: 0 1rem;
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    
+    .body {
+        .goods-list {
+            overflow:visible;
+            height: 100%;
+        }
+    }
+}
+
+

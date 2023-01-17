@@ -1,0 +1,111 @@
+.goods-card {
+    font-size: 14px;
+    padding:0 0 0 10px;
+
+    .container{
+       width:100% !important;
+    }
+    .goods-box {
+        max-width: 50%;
+    }
+    .goods {
+        // break-inside: avoid; // 不设置这个，卡片会被拦腰截断
+        // border: 1px solid #dddddd;
+        padding: 10px 10px 0 0;
+
+
+        .goods-content{
+            border: 1px solid #dddddd;
+            // margin-left: 10px;
+            padding: 0 5px 0 5px
+        }
+        .img {
+            padding: 0 0 10px 0;
+        }
+
+        .introduction {
+            padding: 0 2px 5px 0;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .discounts-box {
+            display: flex;
+            flex-wrap: wrap;
+            transform: scale(0.7);
+            margin: -0.75rem 0 0 -2rem;
+            .discounts {
+                margin-top: 2px;
+
+                .font {
+                    color: #f70606;
+                    border: 0.1px solid #f70606;
+                    border-radius: 3px;
+                    margin: 5px 5px 0 0;
+                    padding: 0 2px 0 0px;
+                }
+         
+
+                .vouchers {
+                    display: flex;
+                 
+                    .vouchers-title {
+                        background: #f70606;
+                        color: #fff;
+                        padding: 0 2px 0 2px;
+                    }
+
+                    .vouchers-content {
+                        padding: 0 0 0 5px;
+                    }
+                }
+            }
+        }
+
+        .price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .present-price {
+                color: #f70606;
+                padding: 5px 0 0 0;
+                font-weight: 700;
+            }
+
+            .original-price {
+                transform: scale(0.6);
+                text-decoration: line-through;
+                margin: -5px 0 0 -10px;
+            }
+
+            .add-cart {
+                padding: 10px 10px 0 0px;
+            }
+        }
+    }
+}
+
+
+//  (min-width: 768px){ //>=768的设备 }
+
+//   (min-width: 992px){ //>=992的设备 }
+
+//   (min-width: 1200){ //>=1200的设备 }
+
+//   (max-width: 1199){ //<=1199的设备 }
+
+//   (max-width: 991px){ //<=991的设备 }
+
+//   (max-width: 767px){ //<=768的设备 }
+@media screen and (max-width: 768px) {
+ 
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .goods-box {
+        max-width: 203px !important;
+    }
+}
