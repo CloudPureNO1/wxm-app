@@ -41,7 +41,7 @@ export const init = () => {
 
 
     // 函数
-    const loadGoods = (category: string) => {
+    const loadGoods = (category?: string) => {
         console.log('>>>>>>', category)
         const discounts: DisCountType = {
             reduce: '一件减￥31',
@@ -356,6 +356,7 @@ export const init = () => {
 
     // 生命周期函数
     onMounted(() => {
+        loadGoods()
         const element: any = document.querySelector('.search-sticky')
         if (element) {
             topH.value = element.offsetHeight
