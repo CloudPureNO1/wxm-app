@@ -7,8 +7,11 @@ import {  useRouter } from 'vue-router'
 import GoodsCard from '../../../components//goodsCard/vue/GoodsCard.vue';
 import WxmFooter from '../../../components/footer/vue/WxmFooter.vue'
 
+import {toLocale} from '../../../composable/TransI18n'
 
 export const init = () => {
+    console.log('>>>>>>>>translate>>>>',toLocale('greet'))
+
     // 路由
     const router =useRouter()
     // store
