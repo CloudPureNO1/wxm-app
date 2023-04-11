@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+import type { I18n } from 'vue-i18n'
 
 import enUS from './locales/en-US'
 import zhCN from './locales/zh-CN'
@@ -23,3 +24,13 @@ const i18n = createI18n<[MessageSchema], 'en-US' | 'zh-CN'>({
     // ...
   })
 export default i18n
+
+export function setI18nLanguage (i18n:I18n, locale:string) {
+  if (i18n.mode === 'legacy') {
+    i18n.global.locale = locale
+  } else {
+    const test = i18n.global.locale
+    i18n.global.locale.value = locale
+    console.log(test)
+  }
+}
