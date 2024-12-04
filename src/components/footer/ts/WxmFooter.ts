@@ -1,7 +1,12 @@
+import type { IBaseCart } from '../../../types/mall/Cart'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTabbarStore } from '../../../stores/system'
-import { useCartGoodsCountStore } from '../../../stores/cart'
+import { useCartGoodsStore } from '../../../stores/cart'
+
+
+
+
 export const init = () => {
     // 路由
     const router = useRouter()
@@ -11,8 +16,11 @@ export const init = () => {
     const active = computed(() => tabbarStore.active)
     const changeActive = tabbarStore.changeActive
 
-    const cartGoodsCountStore=useCartGoodsCountStore()
-    const goodsCount=computed(()=>cartGoodsCountStore.goodsCount)
+    const cartGoodsStore = useCartGoodsStore()
+    const cartGoods = computed(() => cartGoodsStore.cartGoods)
+    const goodsCount = computed(() => cartGoods.value.reduce((quantity: number, item: IBaseCart) => quantity + item.quantity, 0))
+  
+
     // methods
     // tabbar 标签栏改变时触发
     const handleChange = (currentActive: number | string) => {
@@ -35,7 +43,10 @@ export const init = () => {
                 break;
         }
     }
+    const showCart=()=>{
+        console.log('showCart')
+    }
     return {
-        active,goodsCount,handleChange
+        active, goodsCount, handleChange, showCart
     }
 }

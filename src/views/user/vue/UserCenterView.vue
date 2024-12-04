@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="list-wrapper" >
+    <div class="list-wrapper">
       <div class="item">
         <div class="left">
           <img src="./caomei.jpg" alt="" />
@@ -13,9 +13,7 @@
         </div>
         <div class="right">
           <div class="add">
-            <span :class="['opt', { active: count1 > 0 }]" v-show="count1 > 0"
-              >-</span
-            >
+            <span :class="['opt', { active: count1 > 0 }]" v-show="count1 > 0">-</span>
             <span class="num" v-show="count1 > 0">{{ count1 }}</span>
             <span class="opt active" @click="addCount(1, $event)">+</span>
           </div>
@@ -32,9 +30,7 @@
         </div>
         <div class="right">
           <div class="add">
-            <span :class="['opt', { active: count2 > 0 }]" v-show="count2 > 0"
-              >-</span
-            >
+            <span :class="['opt', { active: count2 > 0 }]" v-show="count2 > 0">-</span>
             <span class="num" v-show="count2 > 0">{{ count2 }}</span>
             <span class="opt active" @click="addCount(2, $event)">+</span>
           </div>
@@ -51,9 +47,7 @@
         </div>
         <div class="right">
           <div class="add">
-            <span :class="['opt', { active: count3 > 0 }]" v-show="count3 > 0"
-              >-</span
-            >
+            <span :class="['opt', { active: count3 > 0 }]" v-show="count3 > 0">-</span>
             <span class="num" v-show="count3 > 0">{{ count3 }}</span>
             <span class="opt active" @click="addCount(3, $event)">+</span>
           </div>
@@ -71,43 +65,44 @@
         </div>
         <div class="right">
           <div class="add">
-            <span :class="['opt', { active: count4 > 0 }]" v-show="count4 > 0"
-              >-</span
-            >
+            <span :class="['opt', { active: count4 > 0 }]" v-show="count4 > 0">-</span>
             <span class="num" v-show="count4 > 0">{{ count4 }}</span>
             <span class="opt active" @click="addCount(4, $event)">+</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div :class="['cart', { 'cart__active':isActive,'cart__active_color':count>0}]" >
+
+
+    <!-- <div class="footer">
+      <div :class="['cart', { 'cart__active':isActive,'cart__active_color':count>0}]">
         <img src="./cart.png" alt="" />
         <span class="count" v-show="count > 0">{{ count }}</span>
       </div>
-      <div :class="['cart', { 'cart__active':isActive,'cart__active_color':count>0}]" id="cartCenterId" >
+      <div :class="['cart', { 'cart__active':isActive,'cart__active_color':count>0}]" id="cartCenterId">
         <img src="./cart.png" alt="" />
         <span class="count" v-show="count > 0">{{ count }}</span>
       </div>
       <div :class="['check', { 'cart__active_color': count > 0 }]">去结算</div>
-    </div>
+
+    </div> -->
+    <WxmFooter type="Home" class="home-footer" />
+
+
+
+
     <div class="ball-container">
- 
+
       <div v-for="(ball,index) in balls" :key="genUniqKey(ball)">
-        <transition
-          name="cast-ball"
-          @before-enter="ballBeforeEnter"
-          @enter="ballEnter"
-          @after-enter="ballAfterEnter"
-        >
+        <transition name="cast-ball" @before-enter="ballBeforeEnter" @enter="ballEnter" @after-enter="ballAfterEnter">
           <div class="horiz-ball" v-show="ball.show">
             <div class="ball">
-              <img :src="ball.imgSrc" alt="" :id="'ball'+index"/>
+              <img :src="ball.imgSrc" alt="" :id="'ball'+index" />
             </div>
           </div>
         </transition>
       </div>
- 
+
     </div>
   </div>
 </template>
@@ -115,12 +110,17 @@
  <script lang="ts" setup>
 import { computed, ref } from "vue";
 import {useLoadImg} from '../../../composable/staticImgUtil'
+import WxmFooter from '../../../components/footer/vue/WxmFooter.vue'
 type BallType = {
   show: boolean;
   el?: any;
   type?: number;
   imgSrc?:string
 };
+
+ 
+ 
+
 const isActive = ref<boolean>(false);
  
 const count1 = ref<number>(0);
@@ -195,9 +195,17 @@ const ballEnter = (el: any, done: any) => {
   isActive.value=true
   el.timer = setTimeout(() => {
 
-    const left=document.getElementById('cartCenterId')?.getBoundingClientRect().left as number
-    el.style.webkitTransform = `translate3d(${left-10}px,0,0)`;
-    el.style.transform = `translate3d(${left-10}px,0,0)`;
+    // const left=document.getElementById('cartCenterId')?.getBoundingClientRect().left as number
+    // el.style.webkitTransform = `translate3d(${left-10}px,0,0)`;
+    // el.style.transform = `translate3d(${left-10}px,0,0)`;
+
+
+    // const rect = document.querySelector('.wxm-img')?.getBoundingClientRect()
+    // const width= rect!.width as number
+    const leftCart = document.querySelector('.wxm-cart-footer .van-tabbar-item__icon')?.getBoundingClientRect().left as number
+    const widthCart = document.querySelector('.wxm-cart-footer .van-tabbar-item__icon')?.getBoundingClientRect().width as number
+    el.style.webkitTransform = `translate3d(${leftCart + widthCart / 2-20}px,0,0)`;
+    el.style.transform = `translate3d(${leftCart + widthCart / 2-20}px,0,0)`;
   
     let child = el.children[0];
     // transform :translate3d 实现x,y,z轴的转换， scale 设置放大和缩小，在子元素中，

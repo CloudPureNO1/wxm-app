@@ -1,6 +1,6 @@
 <template>
     <div class="wxm-goods">
-        <van-nav-bar :title="title" fixed :z-index="9999" left-text="返回" left-arrow safe-area-inset-top
+        <van-nav-bar :title="name" fixed :z-index="9999" left-text="返回" left-arrow safe-area-inset-top
             @click-left="handleClickLeft">
             <template #right>
                 <div @click="showCart">
@@ -21,7 +21,7 @@
 import { init } from '../ts/GoodsView'
 const {
     GoodsCard,
-    title, goodsCount,
+    name, goodsCount,
     handleClickLeft,showCart
 } = init()
 </script>

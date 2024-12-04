@@ -12,7 +12,7 @@
           <div class="right">
             <van-space>
               <van-icon name="qr" size="1.5rem" />
-              <van-icon name="scan" size="1.5rem" />
+              <van-icon name="scan" size="1.5rem" @click="showScan" />
             </van-space>
           </div>
         </div>
@@ -22,18 +22,18 @@
       </div>
     </van-sticky>
 
-    <div class="body" >
+    <div class="body">
       <van-swipe :autoplay="1000" lazy-render class="wxm-swipe">
-        <van-swipe-item v-for="image in images" :key="image">
-          <img :src="image" style=" height:200px;width:80%;" />
+        <van-swipe-item v-for="item in swipeGoods" :key="item.productId">
+          <img :src="item.mainImageUrl||''" style=" height:200px;width:80%;" @click="showGoodsInfo(item)" />
         </van-swipe-item>
       </van-swipe>
 
 
       <div class="type-grid">
         <van-grid :border="false" :column-num="5" square :gutter="2" icon-size="1rem">
-          <van-grid-item v-for="(item, index) in gridData" :key="index" @click="showPage(item.goodsType, item.title)">
-            <van-image :src="item.imgSrc" width="3rem" height="3rem" />
+          <van-grid-item v-for="item in gridData" :key="item.categoryId" @click="showPage(item)">
+            <van-image :src="item.categoryImageUrl||''" width="3rem" height="3rem" />
           </van-grid-item>
         </van-grid>
       </div>
@@ -60,9 +60,12 @@
 import { init } from '../ts/HomeView'
 const {
   GoodsCard, WxmFooter,
-  searchValue, avatarImgSrc, images, gridData,
-  showPage
+  searchValue, avatarImgSrc, swipeGoods, gridData,
+  showPage, showScan, showGoodsInfo
 } = init()
+
+ 
+
 </script>
 
 <style scoped lang="scss">

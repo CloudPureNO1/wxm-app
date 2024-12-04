@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+    </application>
+
+    <!-- Permissions -->
+    <!-- 网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--大致位置（网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--精确位置（GPS定位）-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--读写外部存储-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--录音-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--读取通讯录-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--读取短信-->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!--读取电话状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--读取联系人-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!--访问网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--访问WiFi状态-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 这里存在一点理解上的混淆。在AndroidManifest.xml中声明权限（如<uses-permission android:name="android.permission.CAMERA" />）是必需的，这告诉系统你的应用需要在某些情况下访问相机。但这并不意味着用户在安装应用时就会立即被要求授予权限。
+
+从Android 6.0（API级别23）开始，系统采用了运行时权限模型。这意味着对于一些危险权限（比如相机、位置等），虽然你在清单文件中声明了这些权限，用户仍然只会在这个权限实际需要被使用时被提示。换言之，用户不是在安装应用时，而是在应用尝试访问相机时第一次被提示是否授予该权限。
+
+因此，在AndroidManifest.xml中声明权限与运行时权限请求并不矛盾。声明是基础配置，确保应用能够请求权限；而运行时请求则是实际交互，确保用户知道应用何时需要访问敏感功能，并且能够做出决定。如果用户在运行时拒绝了权限请求，应用可以适当处理并提示用户为什么需要该权限，甚至可以引导用户到应用的设置页面手动开启权限。 -->
+ 
+</manifest>

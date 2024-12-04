@@ -19,7 +19,7 @@
             // margin-left: 10px;
             padding: 0 5px 0 5px
         }
-        .img {
+        .wxm-img {
             padding: 0 0 10px 0;
         }
 
@@ -107,5 +107,37 @@
 @media screen and (min-width: 768px) {
     .goods-box {
         max-width: 203px !important;
+    }
+}
+
+
+
+.ball-container {
+            // img {
+            //         width: 88px;
+            //     }
+
+    /* 这里是外层的盒子做水平运动 */
+    .horiz-ball {
+        // position: fixed;
+        // left: 25px;
+        // bottom: 20px;
+        z-index: 9999;
+        transition: 0.4s all linear;
+
+        .ball {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #47b34f;
+            /* 小球本身做加速运动 通过贝塞尔来模拟 */
+            // transition: 0.4s all cubic-bezier(0.49, -0.29, 0.75, 0.41);
+            // transition: 0.4s all cubic-bezier(.55,.07,.92,.37);
+            // transition: 0.4s all cubic-bezier(.55,.07,.79,.41);
+            // transition: 0.4s all cubic-bezier(.64,.29,.96,.94) reverse;
+            // transition: 0.4s all cubic-bezier(.64,.29,.96,.94);
+            // transition: 0.4s all cubic-bezier(.66, .13, .96, .72);
+            transition: 0.4s all cubic-bezier(.66, .13, .96, .72);
+        }
     }
 }

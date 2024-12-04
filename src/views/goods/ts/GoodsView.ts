@@ -1,20 +1,22 @@
+import type { IBaseCart } from '../../../types/mall/Cart'
 import { computed, ref } from 'vue'
 import { useRouter, useRoute } from "vue-router"
 import GoodsCard from '../../../components/goodsCard/vue/GoodsCard.vue'
-import { useCartGoodsCountStore } from '../../../stores/cart'
+import { useCartGoodsStore } from '../../../stores/cart'
 import { useTabbarStore } from '../../../stores/system'
 export const init = () => {
     // 路由
     const router = useRouter()
     const route = useRoute()
     // store
-    const cartGoodsCountStore=useCartGoodsCountStore()
-    const goodsCount=computed(()=>cartGoodsCountStore.goodsCount)
+    const cartGoodsStore = useCartGoodsStore()
+    const cartGoods = computed(() => cartGoodsStore.cartGoods)
+    const goodsCount = computed(() => cartGoods.value.reduce((quantity: number, item: IBaseCart) => quantity + item.quantity, 0))
 
     const {changeActive} = useTabbarStore()
     // 响应式变量
     // const goodsType=ref<string>(route.params.goodsType as string)
-    const title = ref<string>(route.params.title as string)
+    const name = ref<string>(route.params.name as string)
 
 
     // methods
@@ -31,7 +33,7 @@ export const init = () => {
     return {
         // 自定义组件
         GoodsCard,
-        title,goodsCount,
+        name,goodsCount,
         handleClickLeft,showCart
     }
 }

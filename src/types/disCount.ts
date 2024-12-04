@@ -9,9 +9,9 @@ export type GoodsType ={
     imgSrc: string;
     title?:string,
     desc?:string,
-    introduction: string;
-    presentPrice: string;
-    originalPrice: string;
+    introduction?: string;
+    presentPrice?: string;
+    originalPrice?: string;
     currency?:string,
     discounts?: DisCountType;
   }

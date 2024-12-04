@@ -7,6 +7,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue()
   ],
@@ -17,7 +18,7 @@ export default defineConfig({
   },
 
   server: {
-    host: "192.168.179.137",
+    host: "127.0.0.1",
     port: 8888,
     // 跨域配置
     // 默认地址  axios.defaults.baseURL = config.BASE_URL

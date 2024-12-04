@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import type {RouteLocationRaw,RouteLocationNormalized} from 'vue-router'
 import HomeView from '../views/home/vue/HomeView.vue'
  
@@ -19,7 +19,8 @@ const scrollBehavior = (to:RouteLocationRaw, from:RouteLocationNormalized, saved
 }
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/home',
       name: 'home',
       component:HomeView
+    },
+    {
+      path: '/scan',
+      name: 'scan',
+      component: () => import('../views/home/vue/ScanView.vue')
     },
     {
       path: '/categorize',
@@ -47,7 +53,7 @@ const router = createRouter({
       component: () => import('../views/user/vue/UserCenterView.vue')
     },
     {
-      path: '/goods/:goodsType/:title',
+      path: '/goods/:categoryId/:name',
       name: 'goods',
       component: () => import('../views/goods/vue/GoodsView.vue')
     },

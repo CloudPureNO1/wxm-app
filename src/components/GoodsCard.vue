@@ -2,32 +2,27 @@
   <div class="goods-card">
     <div class="goods" v-for="(item ,index) in props.goodsData" :key="index">
       <div class="img">
-        <img :src="item.imgSrc" style="width: 100%; height: 150px" />
+        <img :src="item.mainImageUrl||''" style="width: 100%; height: 150px" />
       </div>
       <div class="introduction">
-        <span>{{item.introduction}}</span>
+        <span>{{ item.description}}</span>
       </div>
-      <div class="discounts-box" v-if="item.discounts">
-        <div class="discounts" v-if="item.discounts.reduce&&item.discounts.reduce!==''">
-          <div class="font">{{ item.discounts.reduce }}</div>
-        </div>
-        <div class="discounts" v-if="item.discounts.gift&&item.discounts.gift!==''">
-          <div class="font">{{ item.discounts.gift }}</div>
-        </div>
-        <div class="discounts" v-if="item.discounts.vouchers&&item.discounts.vouchers!==''">
-          <div class="font vouchers">
+      <div class="discounts-box" v-if="item.discounts && item.discounts.length !== 0">
+        <div class="discounts" v-for=" discount in item.discounts" :key="discount.promotionId">
+          <div :class="loadDiscountClass(discount)" v-if="discount.type === 'spend_&_save'">
             <div class="vouchers-title">券</div>
-            <div class="vouchers-content">{{ item.discounts.vouchers }}</div>
+            <div class="vouchers-content">{{ discount.promotionName }}</div>
           </div>
+          <div :class="loadDiscountClass(discount)" v-else> {{ discount.promotionName }}</div>
         </div>
       </div>
       <div class="price-box">
-        <div class="price" v-if="item.originalPrice&&item.originalPrice!==''">
-          <div class="present-price">{{ item.presentPrice }}</div>
+        <div class="price" v-if="item.originalPrice">
+          <div class="present-price">{{ item.discountedPrice }}</div>
           <div class="original-price">{{ item.originalPrice }}</div>
         </div>
         <div class="price" v-else>
-          <div class="present-price">{{ item.presentPrice }}</div>
+          <div class="present-price">{{ item.discountedPrice }}</div>
         </div>
         <div class="add-cart">
           <van-icon name="add" color="#f70606" size="1.25rem" />
@@ -37,14 +32,23 @@
   </div>
 </template>
 <script lang="ts" setup>
-import type {GoodsType} from '../types/disCount'
+import type { IGoods } from '../types/mall/Mall'
+import type { IBasePromotion } from '../types/mall/Promotion'
+import { defineProps } from 'vue'
 
 type GoodsListType={
-    goodsData?:Array<GoodsType>
+    goodsData?:Array<IGoods>
 }
  
 
 const props=defineProps<GoodsListType>()
+
+const loadDiscountClass = (discount: IBasePromotion) => {
+  if (discount.type === 'percentage' || discount.type === 'fixed_amount') return 'font reduce'
+  if (discount.type === 'buy_x_get_y') return 'font gift'
+  if (discount.type === 'spend_&_save') return 'font vouchers'
+  return ''
+}
 </script>
 <style scoped lang="scss">
 .goods-card {

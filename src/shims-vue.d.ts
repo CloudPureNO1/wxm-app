@@ -10,5 +10,10 @@ declare module '*.vue' {
   Try `npm i --save-dev @types/vue3-qr-reader` if it exists or add a new declaration (.d.ts) file containing `declare module 'vue3-qr-reader';`ts(7016)
  */
 // declare module 'vue3-qr-reader'
+
+
+declare module 'vue3-qrcode-reader'
+
+declare module 'qrcode-reader-vue3'
  
  
